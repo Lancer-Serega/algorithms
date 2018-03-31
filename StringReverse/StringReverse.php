@@ -1,6 +1,7 @@
 <?php
 
 namespace Algorithms\StringReverse;
+
 use RuntimeException;
 
 /**
@@ -10,7 +11,9 @@ use RuntimeException;
  * with multibyte encodings (different lengths)
  *
  * Example:
- *
+ * use Algorithms\StringReverse\StringReverse
+ * $stringReverse = new StringReverse();
+ * echo $stringReverse('Hello world!');
  *
  * @package Algorithms\StringReverse
  */
@@ -26,13 +29,22 @@ class StringReverse
      */
     private $str;
 
+    /**
+     * StringReverse constructor.
+     *
+     * @param string $str reverse string
+     */
     public function __construct(string $str = '')
     {
         $this->str = $str;
         $this->length = \strlen($str); // Multibyte? (Make your own algorithm, instead of the built-in php)
     }
 
-    public function __toString()
+    /**
+     * Get the string representation of this object.
+     * @return string
+     */
+    public function __toString(): string
     {
         return sprintf("String: %s\nLength: %d", $this->str, $this->length);
     }
@@ -69,6 +81,7 @@ class StringReverse
     }
 
     /**
+     * Getter value length to string reverse
      * @return int
      */
     public function getLength(): int
@@ -77,6 +90,7 @@ class StringReverse
     }
 
     /**
+     * Set value length to string reverse
      * @param int $length
      *
      * @return StringReverse
@@ -89,6 +103,7 @@ class StringReverse
     }
 
     /**
+     * Getter value string reverse
      * @return string
      */
     public function getStr(): string
@@ -97,6 +112,7 @@ class StringReverse
     }
 
     /**
+     * Set value to string reverse
      * @param string $str
      *
      * @return StringReverse
