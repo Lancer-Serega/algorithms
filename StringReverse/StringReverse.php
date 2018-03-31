@@ -1,6 +1,7 @@
 <?php
 
 namespace Algorithms\StringReverse;
+use RuntimeException;
 
 /**
  * Class StringReverse for reverse string
@@ -25,7 +26,7 @@ class StringReverse
      */
     private $str;
 
-    public function __construct(string $str)
+    public function __construct(string $str = '')
     {
         $this->str = $str;
         $this->length = \strlen($str); // Multibyte? (Make your own algorithm, instead of the built-in php)
@@ -36,9 +37,26 @@ class StringReverse
         return sprintf("String: %s\nLength: %d", $this->str, $this->length);
     }
 
+    /**
+     * @param $str
+     *
+     * @throws \RuntimeException
+     */
+    public function __invoke($str)
+    {
+        if (!\is_string($str)) {
+            throw new RuntimeException('Fatal Error application! Get params is not a string type!');
+        }
+
+        $this->setStr($str);
+        $this->setLength(\strlen($str));
+
+        echo $this->reverse();
+    }
+
     public function reverse(): string
     {
-
+        return 'invoke';
     }
 
     /**
