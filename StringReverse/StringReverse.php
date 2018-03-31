@@ -54,9 +54,18 @@ class StringReverse
         echo $this->reverse();
     }
 
+    /**
+     * Inverting string method
+     * @return string
+     */
     public function reverse(): string
     {
-        return 'invoke';
+        $str = '';
+        for ($i = $this->length - 1; $i >= 0; $i--) {
+            $str .= $this->getStr()[$i];
+        }
+
+        return $str;
     }
 
     /**
