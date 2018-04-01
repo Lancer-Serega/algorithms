@@ -78,9 +78,10 @@ class StringReverse
      */
     public function reverse(): string
     {
+        $tmp = $this->getStr();
         $str = '';
         for ($i = $this->length - 1; $i >= 0; $i--) {
-            $str .= $this->getStr()[$i];
+            $str .= $tmp[$i];
         }
 
         return $str;
